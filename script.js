@@ -3,6 +3,7 @@ const usernameBox = document.getElementById("username")
 const clearBtn = document.getElementById("clear")
 const displayBox = document.getElementById("displayName")
 const saveBtn = document.getElementById("saveBtn")
+const errorBox = document.getElementById("errorBox")
 
 let username = "User"
 let greeting
@@ -29,11 +30,12 @@ saveBtn.addEventListener("click", () => { // sets the display and sets localStor
     const inputValue = usernameBox.value.trim();
 
     if (inputValue === "") {
-        h1Box.innerText = "Error: name cannot be empty.";
+        errorBox.innerText = "Error: name cannot be empty.";
     } else {
         username = inputValue;
         window.localStorage.setItem("name", username);
         h1Box.innerText = `${greeting} ${username}!`;
+        errorBox.innerText = ""
     }
 });
 
